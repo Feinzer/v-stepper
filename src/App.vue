@@ -1,7 +1,11 @@
 <template>
   <div id="app">
     <Stepper class="stepper-example" :can-finish="canFinish">
-      <Step v-for="(data, index) in exampleData" :key="index">
+      <Step
+        v-for="(data, index) in exampleData"
+        :key="index"
+        :can-advance="canAdvance"
+      >
         <p>{{ data.title }}</p>
         <p>{{ data.content }}</p>
       </Step>
@@ -27,6 +31,7 @@ export default {
         content:
           'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolore quidem inventore aut corporis mollitia perferendis minima. Pariatur, excepturi laudantium.',
       }),
+      canAdvance: true,
       canFinish: false,
     };
   },
