@@ -1,5 +1,10 @@
 {
   "name": "vue-custom-stepper",
+  "author": {
+    "name": "Daniel Hernández",
+    "email": "danhernan23i@gmail.com"
+  },
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "scripts": {
