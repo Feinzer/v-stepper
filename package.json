@@ -12,7 +12,7 @@
   "license": "MIT",
   "version": "0.0.1b",
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "build:lib": "vue-cli-service build --target lib --name v-custom-stepper src/Stepper/index.js --mode production",
     "lint": "vue-cli-service lint"
