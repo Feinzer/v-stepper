@@ -2,6 +2,10 @@
 export default {
   name: 'Stepper',
   props: {
+    showIndicator: {
+      type: Boolean,
+      default: false,
+    },
     canFinish: {
       type: Boolean,
       default: true,
@@ -31,6 +35,10 @@ export default {
     },
     isLastStep() {
       return this.currentIndex == this.totalSteps - 1;
+    },
+    progress() {
+      if (this.isLastStep && this.canFinish) return 100;
+      else return (this.currentIndex / this.totalSteps) * 100;
     },
     direction() {
       if (this.animation == 'forward')
@@ -66,15 +74,34 @@ export default {
 
 <template>
   <div class="stepper">
+    <div v-if="showIndicator">
+      <slot name="indicator" :progress="progress">
+        <div
+          class="progress-bar"
+          :style="
+            `width: ${progress}%;
+            border-top-right-radius: ${progress == 100 ? '0' : '9999px'};
+            border-bottom-right-radius:  ${progress == 100 ? '0' : '9999px'};`
+          "
+        />
+      </slot>
+    </div>
     <div :style="direction" class="steps-container">
       <slot />
     </div>
     <slot
       name="controls"
-      :next="onNext"
-      :back="onBack"
-      :finish="onFinish"
-      :animateTo="animateTo"
+      :handlers="{
+        next: onNext,
+        back: onBack,
+        finish: onFinish,
+        animateTo: animateTo,
+      }"
+      :checks="{
+        canGoNext,
+        canGoBack,
+        isLastStep,
+      }"
     >
       <div class="controls">
         <button
@@ -120,6 +147,14 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.progress-bar {
+  height: 0.375rem;
+  background-color: #202124;
+  transition-property: all;
+  transition-duration: 250ms;
+  transform-origin: left;
 }
 
 .steps-container {
