@@ -109,8 +109,8 @@ button {
   height: 3rem;
   cursor: pointer;
   background-color: white;
-  border-width: 1px !important;
-  border-color: #e5e7eb !important;
+  border-width: 1px;
+  border-color: #e5e7eb;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   outline: none;
@@ -118,9 +118,9 @@ button {
 }
 
 .disabled-action {
-  color: rgb(155, 155, 155) !important;
-  background-color: rgb(241, 241, 241) !important;
-  box-shadow: none !important;
-  border: none !important;
+  color: rgb(155, 155, 155);
+  background-color: rgb(241, 241, 241);
+  box-shadow: none;
+  border: none;
 }
 </style>
