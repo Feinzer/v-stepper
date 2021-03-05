@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Stepper from '@/Stepper/Stepper';
-import Step from '@/Stepper/Step';
+import Stepper from '@/stepper/Stepper';
+import Step from '@/stepper/Step';
 
 export default {
   name: 'App',
