@@ -1,24 +1,43 @@
-# vue-custom-stepper
+# @feinzer/v-custom-stepper
 
-## Project setup
-```
-npm install
-```
+Simple, reusable and highly customizable stepper component using VueJS Slots.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
+## Installation
+
+``` sh
+npm install @feinzer/v-custom-stepper
 ```
 
-### Compiles and minifies for production
-```
-npm run build
+## Usage
+
+``` js
+import { Stepper, Step } from '@feinzer/v-custom-stepper';
+
+export default {
+  ...
+  components: {
+    Stepper,
+    Step,
+  },
+  ...
+};
 ```
 
-### Lints and fixes files
-```
-npm run lint
+``` html
+<Stepper>
+  <Step>
+    Step 1 Content
+  </Step>
+  <Step>
+    Step 2 Content
+  </Step>
+</Stepper>
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Options
+
+| Property                    | Type    | Default | Description                                                                                                                                                                                                                                                                           |
+|:----------------------------|:--------|:--------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| showIndicator            | Boolean | false   | Shows an indicator section on top of the steps.
+| canFinish                | Boolean | true    | Enables or disables the finish button and marks the steps as finished.
+| canAdvance               | Boolean | true    | Checks per step to allow the user to go next or not.
