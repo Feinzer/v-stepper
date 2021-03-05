@@ -19,7 +19,6 @@
   },
   "main": "dist/v-custom-stepper.umd.min.js",
   "files": [
-    "src",
     "dist"
   ],
   "dependencies": {
