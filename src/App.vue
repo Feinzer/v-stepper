@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Stepper class="stepper-example" :can-finish="canFinish">
+    <Stepper class="stepper-example" show-indicator :can-finish="canFinish">
       <Step
         v-for="(data, index) in exampleData"
         :key="index"
@@ -53,6 +53,6 @@ body {
 }
 
 .stepper-example {
-  height: 100vh;
+  height: 90vh;
 }
 </style>
