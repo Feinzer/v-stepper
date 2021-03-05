@@ -1,6 +1,12 @@
 <script>
 export default {
   name: 'Stepper',
+  props: {
+    canFinish: {
+      type: Boolean,
+      default: true,
+    },
+  },
   data() {
     return {
       totalSteps: 0,
@@ -17,6 +23,9 @@ export default {
     },
     canGoBack() {
       return this.currentIndex > 0;
+    },
+    isLastStep() {
+      return this.currentIndex == this.totalSteps - 1;
     },
     direction() {
       if (this.animation == 'forward')
@@ -38,6 +47,9 @@ export default {
     onBack() {
       if (this.canGoBack) this.animateTo(this.currentIndex - 1);
     },
+    onFinish() {
+      if (this.isLastStep && this.canFinish) this.$emit('finish');
+    },
     animateTo(index) {
       if (index > this.currentIndex) this.animation = 'forward';
       else this.animation = 'backward';
@@ -52,7 +64,13 @@ export default {
     <div :style="direction" class="steps-container">
       <slot />
     </div>
-    <slot name="controls" :next="onNext" :back="onBack" :animateTo="animateTo">
+    <slot
+      name="controls"
+      :next="onNext"
+      :back="onBack"
+      :finish="onFinish"
+      :animateTo="animateTo"
+    >
       <div class="controls">
         <button
           class="action"
@@ -62,6 +80,15 @@ export default {
           Back
         </button>
         <button
+          v-if="isLastStep"
+          class="action finish-action"
+          :class="!canFinish && 'disabled-action'"
+          @click="onFinish"
+        >
+          Finish
+        </button>
+        <button
+          v-else
           class="action"
           :class="!canGoNext && 'disabled-action'"
           @click="onNext"
@@ -105,6 +132,8 @@ button {
 }
 
 .action {
+  transition: all;
+  transition-duration: 150ms;
   width: 8rem;
   height: 3rem;
   cursor: pointer;
@@ -115,6 +144,11 @@ button {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   outline: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.finish-action {
+  color: white;
+  background-color: rgb(34, 34, 34);
 }
 
 .disabled-action {
