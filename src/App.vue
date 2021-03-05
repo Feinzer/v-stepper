@@ -1,12 +1,10 @@
 <template>
   <div id="app">
-    <Stepper>
-      <Step><p>a</p></Step>
-      <Step><p>b</p></Step>
-      <Step><p>c</p></Step>
-      <Step><p>d</p></Step>
-      <Step><p>e</p></Step>
-      <Step><p>f</p></Step>
+    <Stepper class="stepper-example">
+      <Step v-for="(data, index) in exampleData" :key="index">
+        <p>{{ data.title }}</p>
+        <p>{{ data.content }}</p>
+      </Step>
     </Stepper>
   </div>
 </template>
@@ -21,15 +19,33 @@ export default {
     Stepper,
     Step,
   },
+  data() {
+    return {
+      exampleData: Array(10).fill({
+        title: 'Sample text',
+        content:
+          'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium dolore quidem inventore aut corporis mollitia perferendis minima. Pariatur, excepturi laudantium.',
+      }),
+    };
+  },
 };
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Ubuntu, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: rgba(249, 249, 249);
+}
+
+.stepper-example {
+  height: 100vh;
 }
 </style>
