@@ -1,6 +1,12 @@
 <script>
 export default {
   name: 'Step',
+  props: {
+    canAdvance: {
+      type: Boolean,
+      default: true,
+    },
+  },
   computed: {
     index() {
       return this.$parent.$children.findIndex(child => child == this);

@@ -18,8 +18,13 @@ export default {
     this.totalSteps = this.$children.length;
   },
   computed: {
+    currentStep() {
+      return this.$children[this.currentIndex];
+    },
     canGoNext() {
-      return this.currentIndex < this.totalSteps - 1;
+      return (
+        this.currentIndex < this.totalSteps - 1 && this.currentStep.canAdvance
+      );
     },
     canGoBack() {
       return this.currentIndex > 0;
