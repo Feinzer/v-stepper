@@ -161,5 +161,6 @@ button {
   background-color: rgb(241, 241, 241);
   box-shadow: none;
   border: none;
+  cursor: default;
 }
 </style>
