@@ -1,17 +1,27 @@
 {
-  "name": "vue-custom-stepper",
+  "name": "@feinzer/v-custom-stepper",
+  "private": false,
   "author": {
     "name": "Daniel Hernández",
     "email": "danhernan23i@gmail.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Feinzer/vue-custom-stepper"
+  },
   "license": "MIT",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.0.1b",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:lib": "vue-cli-service build --target lib --name v-custom-stepper src/Stepper/index.js",
     "lint": "vue-cli-service lint"
   },
+  "main": "dist/v-custom-stepper.umd.min.js",
+  "files": [
+    "src",
+    "dist"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
