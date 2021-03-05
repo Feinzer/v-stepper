@@ -10,7 +10,7 @@
     "url": "https://github.com/Feinzer/vue-custom-stepper"
   },
   "license": "MIT",
-  "version": "0.0.1b",
+  "version": "0.0.2",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
