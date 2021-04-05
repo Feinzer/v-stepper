@@ -1,21 +1,21 @@
-# @feinzer/v-custom-stepper
+# @feinzer/v-stepper
 
 Simple, reusable and highly customizable stepper component using VueJS Slots.
 
 ## Installation
 
 ``` sh
-npm install @feinzer/v-custom-stepper
+npm install @feinzer/v-stepper
 ```
 or
 ``` sh
-yarn add @feinzer/v-custom-stepper
+yarn add @feinzer/v-stepper
 ```
 
 ## Usage
 
 ``` js
-import { Stepper, Step } from '@feinzer/v-custom-stepper';
+import { Stepper, Step } from '@feinzer/v-stepper';
 
 export default {
   ...
