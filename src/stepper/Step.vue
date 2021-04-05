@@ -26,7 +26,7 @@ export default {
   </transition>
 </template>
 
-<style scoped>
+<style>
 .step {
   position: absolute;
   width: 100%;

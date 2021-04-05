@@ -133,15 +133,13 @@ export default {
   </div>
 </template>
 
-<style scoped>
-button {
+<style>
+.action {
   background: none;
-  color: inherit;
   border: none;
   padding: 0;
   font: inherit;
   cursor: pointer;
-  outline: inherit;
 }
 
 .stepper {
