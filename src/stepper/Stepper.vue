@@ -100,6 +100,7 @@ export default {
       :checks="{
         canGoNext,
         canGoBack,
+        canFinish,
         isLastStep,
       }"
     >
