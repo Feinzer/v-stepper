@@ -20,19 +20,21 @@ export default {
 
 <template>
   <transition v-if="isCurrent" name="step">
-    <div class="step">
+    <div :class="$style.step">
       <slot />
     </div>
   </transition>
 </template>
 
-<style>
+<style module>
 .step {
   position: absolute;
   width: 100%;
   height: 100%;
 }
+</style>
 
+<style scoped>
 .step-enter-active,
 .step-leave-active {
   transition-property: all;
@@ -45,9 +47,9 @@ export default {
 }
 
 .step-enter {
-  transform: translateX(var(--stepper_forward));
+  transform: translateX(var(--___stepper_forward));
 }
 .step-leave-active {
-  transform: translateX(var(--stepper_backward));
+  transform: translateX(var(--___stepper_backward));
 }
 </style>

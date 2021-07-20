@@ -43,13 +43,13 @@ export default {
     direction() {
       if (this.animation == 'forward')
         return {
-          '--stepper_forward': '5rem',
-          '--stepper_backward': '-5rem',
+          '--___stepper_forward': '5rem',
+          '--___stepper_backward': '-5rem',
         };
       else
         return {
-          '--stepper_forward': '-5rem',
-          '--stepper_backward': '5rem',
+          '--___stepper_forward': '-5rem',
+          '--___stepper_backward': '5rem',
         };
     },
   },
@@ -73,11 +73,11 @@ export default {
 </script>
 
 <template>
-  <div class="stepper">
+  <div :class="$style.stepper">
     <div v-if="showIndicator">
       <slot name="indicator" :progress="progress">
         <div
-          class="progress-bar"
+          :class="$style['progress-bar']"
           :style="
             `width: ${progress}%;
             border-top-right-radius: ${progress == 100 ? '0' : '9999px'};
@@ -86,7 +86,7 @@ export default {
         />
       </slot>
     </div>
-    <div :style="direction" class="steps-container">
+    <div :style="direction" :class="$style['steps-container']">
       <slot />
     </div>
     <slot
@@ -104,26 +104,27 @@ export default {
         isLastStep,
       }"
     >
-      <div class="controls">
+      <div :class="$style.controls">
         <button
-          class="action"
-          :class="!canGoBack && 'disabled-action'"
+          :class="[$style.action, !canGoBack && $style['disabled-action']]"
           @click="onBack"
         >
           Back
         </button>
         <button
           v-if="isLastStep"
-          class="action finish-action"
-          :class="!canFinish && 'disabled-action'"
+          :class="[
+            $style.action,
+            $style['finish-action'],
+            !canFinish && $style['disabled-action'],
+          ]"
           @click="onFinish"
         >
           Finish
         </button>
         <button
           v-else
-          class="action"
-          :class="!canGoNext && 'disabled-action'"
+          :class="[$style.action, !canGoNext && $style['disabled-action']]"
           @click="onNext"
         >
           Next
@@ -133,7 +134,7 @@ export default {
   </div>
 </template>
 
-<style>
+<style module>
 .action {
   background: none;
   border: none;
