@@ -6,6 +6,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    hideDefaultActions: {
+      type: Boolean,
+      default: false,
+    },
     canFinish: {
       type: Boolean,
       default: true,
@@ -87,7 +91,20 @@ export default {
       </slot>
     </div>
     <div :style="direction" :class="$style['steps-container']">
-      <slot />
+      <slot
+        :handlers="{
+          next: onNext,
+          back: onBack,
+          finish: onFinish,
+          animateTo: animateTo,
+        }"
+        :checks="{
+          canGoNext,
+          canGoBack,
+          canFinish,
+          isLastStep,
+        }"
+      />
     </div>
     <slot
       name="controls"
@@ -104,7 +121,7 @@ export default {
         isLastStep,
       }"
     >
-      <div :class="$style.controls">
+      <div v-if="!hideDefaultActions" :class="$style.controls">
         <button
           :class="[$style.action, !canGoBack && $style['disabled-action']]"
           @click="onBack"
