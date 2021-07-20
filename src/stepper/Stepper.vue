@@ -161,7 +161,7 @@ export default {
   position: relative;
   display: flex;
   flex-grow: 1;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .controls {
