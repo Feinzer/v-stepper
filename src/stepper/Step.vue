@@ -28,7 +28,6 @@ export default {
 
 <style module>
 .step {
-  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -50,6 +49,7 @@ export default {
   transform: translateX(var(--___stepper_forward));
 }
 .step-leave-active {
+  position: absolute;
   transform: translateX(var(--___stepper_backward));
 }
 </style>
