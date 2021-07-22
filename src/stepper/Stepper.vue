@@ -47,13 +47,13 @@ export default {
     direction() {
       if (this.animation == 'forward')
         return {
-          '--___stepper_forward': '5rem',
-          '--___stepper_backward': '-5rem',
+          '--___stepper_forward': '10%',
+          '--___stepper_backward': '-10%',
         };
       else
         return {
-          '--___stepper_forward': '-5rem',
-          '--___stepper_backward': '5rem',
+          '--___stepper_forward': '-10%',
+          '--___stepper_backward': '10%',
         };
     },
   },
@@ -177,8 +177,8 @@ export default {
 .steps-container {
   position: relative;
   display: flex;
+  justify-content: center;
   flex-grow: 1;
-  overflow: hidden;
 }
 
 .controls {
