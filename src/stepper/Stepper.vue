@@ -60,17 +60,20 @@ export default {
   methods: {
     onNext() {
       if (this.canGoNext) this.animateTo(this.currentIndex + 1);
+      this.$emit('next');
     },
     onBack() {
       if (this.canGoBack) this.animateTo(this.currentIndex - 1);
+      this.$emit('back');
     },
     onFinish() {
-      if (this.isLastStep && this.canFinish) this.$emit('finish');
+      this.$emit('finish');
     },
     animateTo(index) {
       if (index > this.currentIndex) this.animation = 'forward';
       else this.animation = 'backward';
       this.currentIndex = index;
+      this.$emit('move');
     },
   },
 };
