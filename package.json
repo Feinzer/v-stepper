@@ -10,7 +10,7 @@
     "url": "https://github.com/Feinzer/v-stepper"
   },
   "license": "MIT",
-  "version": "0.0.8",
+  "version": "0.0.82",
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
