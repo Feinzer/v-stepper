@@ -59,12 +59,14 @@ export default {
   },
   methods: {
     onNext() {
-      if (this.canGoNext) this.animateTo(this.currentIndex + 1);
+      this.currentStep.$emit('next');
       this.$emit('next');
+      if (this.canGoNext) this.animateTo(this.currentIndex + 1);
     },
     onBack() {
-      if (this.canGoBack) this.animateTo(this.currentIndex - 1);
+      this.currentStep.$emit('back');
       this.$emit('back');
+      if (this.canGoBack) this.animateTo(this.currentIndex - 1);
     },
     onFinish() {
       this.$emit('finish');
@@ -72,8 +74,8 @@ export default {
     animateTo(index) {
       if (index > this.currentIndex) this.animation = 'forward';
       else this.animation = 'backward';
+      this.$emit('change', { old: this.currentIndex, new: index });
       this.currentIndex = index;
-      this.$emit('move');
     },
   },
 };
