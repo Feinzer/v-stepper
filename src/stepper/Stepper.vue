@@ -14,6 +14,10 @@ export default {
       type: Boolean,
       default: true,
     },
+    keepState: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {

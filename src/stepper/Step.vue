@@ -14,17 +14,31 @@ export default {
     isCurrent() {
       return this.index == this.$parent.currentIndex;
     },
+    keep() {
+      return this.$parent.keepState;
+    },
+  },
+  render() {
+    if (this.keep) {
+      return (
+        <transition name="step">
+          <div v-show={this.isCurrent} class={this.$style.step}>
+            {this.$slots.default}
+          </div>
+        </transition>
+      );
+    } else {
+      if (this.isCurrent)
+        return (
+          <transition name="step">
+            <div class={this.$style.step}>{this.$slots.default}</div>
+          </transition>
+        );
+      else return null;
+    }
   },
 };
 </script>
-
-<template>
-  <transition v-if="isCurrent" name="step">
-    <div :class="$style.step">
-      <slot />
-    </div>
-  </transition>
-</template>
 
 <style module>
 .step {
