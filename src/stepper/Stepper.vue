@@ -18,6 +18,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    initialStep: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -28,6 +32,7 @@ export default {
   },
   mounted() {
     this.totalSteps = this.$children.length;
+    this.currentIndex = this.initialStep;
   },
   computed: {
     currentStep() {
